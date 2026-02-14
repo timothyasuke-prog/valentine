@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Proposal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+  <a class="home" href="index.html">← Back</a>
+  <main class="surprise" style="padding-top:60px">
+    <h2>Do you love me Magret?, if yes reply me on whatsapp.</h2>
+    <p class="sub">This is the final reveal.</p>
+    <div style="margin-top:18px">
+      <button id="yesBtn" class="btn">Yes</button>
+      <button id="noBtn" class="btn small">No (not allowed)</button>
+    </div>
+  </main>
+  <canvas id="proposalConfetti" style="position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none"></canvas>
+  <script>
+    document.getElementById('yesBtn').addEventListener('click',()=>{
+      // simple confetti effect using canvas from main.js later
+      alert('She said YES!');
+    });
+    document.getElementById('noBtn').addEventListener('click',()=>{alert('Try again later :)');});
+  </script>
+</body></html>

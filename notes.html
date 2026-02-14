@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Open Me</title>
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+  <a class="home" href="index.html">← Back</a>
+  <main class="surprise">
+    <h2>Love Notes</h2>
+    <p class="sub">Click the envelopes to open little notes. Replace the text inside each `.note-text`.</p>
+    <div class="envelopes">
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">1</div>
+        <div class="note-text" style="display:none">Every time I see you, my heart does a little happy dance 💃❤️. You make my world brighter just by being in it 🌟.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">2</div>
+        <div class="note-text" style="display:none">I still remember the first time I saw you… and how my heart instantly knew you were someone special 💘✨.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">3</div>
+        <div class="note-text" style="display:none">Being with you feels like coming home 🏡💞. You are my safe place, my happiness, my everything 🌹.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">4</div>
+        <div class="note-text" style="display:none">I love the way you laugh 😄💖. It’s contagious and it makes every bad day disappear like magic ✨.I love the way you laugh 😄💖. It’s contagious and it makes every bad day disappear like magic ✨.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">5</div>
+        <div class="note-text" style="display:none">No words can describe how much you mean to me 💌. I love you more with every heartbeat ❤️💓.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">6</div>
+        <div class="note-text" style="display:none">You are my dream come true 🌙💫, my heart’s greatest treasure, and my forever Valentine 🌹💝.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">7</div>
+        <div class="note-text" style="display:none">Even the simplest moments with you are unforgettable 🕊️💗. Holding your hand is my favorite place to be 🤲💕</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">8</div>
+        <div class="note-text" style="display:none">You make my soul feel at peace 🌊💖. Loving you is the easiest, happiest thing I’ve ever done 💞.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">9</div>
+        <div class="note-text" style="display:none">I fall in love with you every single day 😍💘. Your smile, your voice, your heart… everything about you 🌸✨.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">10</div>
+        <div class="note-text" style="display:none">You’re not just my love; you’re my best friend, my partner, my everything 🌹💫. Life is better because of you 💕.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">11</div>
+        <div class="note-text" style="display:none">I never believed in magic until I met you 🌟💖. You’ve turned my ordinary life into a fairy tale 🏰❤️.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">12</div>
+        <div class="note-text" style="display:none">No matter where life takes us 🌍💞, I’ll always choose you, love you, and cherish you forever 💌💓.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">13</div>
+        <div class="note-text" style="display:none">You make every day feel special 🌸💖. I love the way you light up the world just by being you ✨💘.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">14</div>
+        <div class="note-text" style="display:none">I love our little moments, our inside jokes, and the way we understand each other without words 😘💗.</div>
+      </div>
+      <div class="envelope" data-open="false">
+        <div class="envelope-front">15</div>
+        <div class="note-text" style="display:none">You are my heart, my soul, and my everything ❤️💫. Loving you is the best part of every day 🌹💞.</div>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.querySelectorAll('.envelope').forEach(env=>{
+      env.addEventListener('click',()=>{
+        const note=env.querySelector('.note-text');
+        if(note.style.display==='none'){note.style.display='block'; env.querySelector('.envelope-front').style.opacity=0.4}
+        else {note.style.display='none'; env.querySelector('.envelope-front').style.opacity=1}
+      });
+    });
+  </script>
+</body></html>

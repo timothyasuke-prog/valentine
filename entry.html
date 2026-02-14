@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Enter — For You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.entry-page{background:linear-gradient(135deg,#ff6b9f 0%,#ff4d83 50%,#c72e5e 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .entry-bg{position:fixed;inset:0;pointer-events:none;z-index:0}
+    .entry-container{position:relative;z-index:5;max-width:420px;width:90%;background:rgba(255,255,255,0.95);padding:40px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);backdrop-filter:blur(10px);text-align:center}
+    .entry-container h2{font-family:'Dancing Script',cursive;font-size:36px;color:#ff4d83;margin:20px 0;animation:popIn 0.6s ease-out}
+    .entry-container p{color:#6b6b6b;margin:12px 0;font-size:14px;animation:fadeInUp 0.6s ease-out 0.2s both}
+    .entry-input{width:100%;padding:14px;margin:20px 0;border:2px solid #ff6b9f;border-radius:10px;font-size:16px;text-align:center;letter-spacing:2px;background:#fff;transition:all 0.3s;animation:slideUp 0.6s ease-out 0.3s both}
+    .entry-input:focus{outline:none;border-color:#ff4d83;box-shadow:0 0 12px rgba(255,77,131,0.3);transform:scale(1.02)}
+    .entry-btn{background:linear-gradient(180deg,#ff6b9f,#ff4d83);color:#fff;padding:14px 32px;border:none;border-radius:25px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 20px rgba(255,77,131,0.3);transition:all 0.3s;animation:slideUp 0.6s ease-out 0.4s both;width:100%}
+    .entry-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,77,131,0.4)}
+    .entry-btn:active{transform:translateY(0)}
+    .entry-msg{margin-top:16px;font-size:14px;color:#e74c3c;min-height:18px;animation:fadeInUp 0.5s}
+    .entry-tip{margin-top:20px;color:#999;font-size:12px;animation:fadeInUp 0.6s ease-out 0.5s both}
+    @keyframes popIn{0%{transform:scale(0);opacity:0}50%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+    @keyframes fadeInUp{0%{transform:translateY(20px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    @keyframes slideUp{0%{transform:translateY(30px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-20px)}}
+    .float-heart{position:absolute;font-size:40px;opacity:0.15;animation:float 3s ease-in-out infinite;pointer-events:none}
+  </style>
+</head>
+<body class="entry-page">
+  <div class="entry-bg" id="entryBg"></div>
+  <main class="entry-container">
+    <h2 id="titleText">💌</h2>
+    <p>Enter the secret password to open your surprise.</p>
+    <input id="pw" class="entry-input" placeholder="password" autocomplete="off">
+    <button id="enterBtn" class="entry-btn">Unlock My Heart</button>
+    <p id="msg" class="entry-msg"></p>
+    <p class="entry-tip">🔐 Tip: edit the PASSWORD variable inside this file to set your custom password.</p>
+  </main>
+
+  <script>
+    const PASSWORD = 'Adasa';
+    // Typing effect for title
+    const title = document.getElementById('titleText');
+    const texts = ['💌', '❤️', '💕'];
+    let textIdx = 0;
+    function typeTitle() {
+      textIdx = (textIdx + 1) % texts.length;
+      title.style.opacity = '0';
+      setTimeout(() => {
+        title.innerText = texts[textIdx];
+        title.style.opacity = '1';
+      }, 200);
+    }
+    setInterval(typeTitle, 1500);
+    // Floating hearts in background
+    const bg = document.getElementById('entryBg');
+    for(let i=0; i<12; i++){
+      const h = document.createElement('div');
+      h.className = 'float-heart';
+      h.innerText = '❤';
+      h.style.left = Math.random()*100+'%';
+      h.style.top = Math.random()*100+'%';
+      h.style.animationDelay = Math.random()*2+'s';
+      h.style.animationDuration = (3+Math.random()*4)+'s';
+      bg.appendChild(h);
+    }
+    // Enter button handler
+    const enterBtn = document.getElementById('enterBtn');
+    const pwInput = document.getElementById('pw');
+    const msgEl = document.getElementById('msg');
+    function tryUnlock() {
+      const v = pwInput.value.trim();
+      if(v === PASSWORD){
+        msgEl.innerText = '✅ Access Granted!';
+        msgEl.style.color = '#27ae60';
+        enterBtn.innerText = '🎉 Welcome!';
+        enterBtn.disabled = true;
+        localStorage.setItem('valentine_unlocked','1');
+        setTimeout(() => { location.href = 'index.html'; }, 800);
+      } else {
+        msgEl.innerText = '❌ Wrong password. Try again.';
+        pwInput.style.animation = 'none';
+        setTimeout(() => { pwInput.style.animation = 'shake 0.3s'; }, 10);
+        pwInput.value = '';
+        pwInput.focus();
+      }
+    }
+    enterBtn.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') tryUnlock(); });
+    if(localStorage.getItem('valentine_unlocked')) location.href = 'index.html';
+  </script>
+  <style>
+    @keyframes shake{
+      0%,100%{transform:translateX(0)}
+      25%{transform:translateX(-8px)}
+      75%{transform:translateX(8px)}
+    }
+  </style>
+</body>
+</html>

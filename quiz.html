@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Love Quiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+  <a class="home" href="index.html">← Back</a>
+  <main class="surprise">
+    <h2>How well do you know me?</h2>
+    <div class="quiz">
+      <p>What do i like the most?</p>
+      <input id="q1" placeholder="i like you">
+      <button id="checkQ">Check</button>
+      <p id="qRes"></p>
+    </div>
+  </main>
+  <script>
+    document.getElementById('checkQ').addEventListener('click',()=>{
+      const v=document.getElementById('q1').value.trim().toLowerCase();
+      if(v.includes('lake') || v.includes('park')) document.getElementById('qRes').innerText='Correct!';
+      else document.getElementById('qRes').innerText='I LOVE YOU';
+    });
+  </script>
+</body></html>

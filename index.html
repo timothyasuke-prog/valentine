@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Valentine — For You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-content">
+        <h1 id="mainTitle" class="title-animate">For My Love</h1>
+        <p class="sub reveal-text">A few little surprises,<br>one click at a time 💌</p>
+        <div style="margin-top:20px;display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;">
+          <button id="musicToggle" class="btn small">🎵 Play Music</button>
+          <a href="entry.html" class="btn small">🔐 Re-enter</a>
+          <audio id="bgMusic" src="audio/love.mp3" loop></audio>
+        </div>
+      </div>
+    </header>
+
+    <section class="nav-grid" id="navGrid">
+      <div class="card hoverable" style="animation-delay:0s">
+        <div class="card-icon">📖</div>
+        <h3>Our Story</h3>
+        <a href="timeline.html" class="btn">View Timeline</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.1s">
+        <div class="card-icon">💌</div>
+        <h3>Love Letter</h3>
+        <a href="letter.html" class="btn">Read My Heart</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.2s">
+        <div class="card-icon">📸</div>
+        <h3>Gallery</h3>
+        <a href="gallery.html" class="btn">View Photos</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.3s">
+        <div class="card-icon">🎵</div>
+        <h3>Our Song</h3>
+        <a href="song.html" class="btn">Listen</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.4s">
+        <div class="card-icon">💝</div>
+        <h3>Why I Love You</h3>
+        <a href="reasons.html" class="btn">14 Reasons</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.5s">
+        <div class="card-icon">💌</div>
+        <h3>Love Notes</h3>
+        <a href="notes.html" class="btn">Open Notes</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.6s">
+        <div class="card-icon">⏳</div>
+        <h3>Together For</h3>
+        <a href="counter.html" class="btn">See Counter</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.7s">
+        <div class="card-icon">🌟</div>
+        <h3>Our Future</h3>
+        <a href="future.html" class="btn">See Plans</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.8s">
+        <div class="card-icon">🎮</div>
+        <h3>Quiz</h3>
+        <a href="quiz.html" class="btn">Test Me</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:0.9s">
+        <div class="card-icon">📹</div>
+        <h3>Message</h3>
+        <a href="video.html" class="btn">Watch</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:1s">
+        <div class="card-icon">💍</div>
+        <h3>Big Question</h3>
+        <a href="proposal.html" class="btn">The Moment</a>
+      </div>
+      <div class="card hoverable" style="animation-delay:1.1s">
+        <div class="card-icon">✨</div>
+        <h3>Surprise</h3>
+        <a href="surprise1.html" class="btn">Reveal</a>
+      </div>
+    </section>
+
+    <footer class="foot">Made with love 💕 Feb 14, 2026</footer>
+    <div id="floating-hearts" aria-hidden="true"></div>
+    <canvas id="particleCanvas" style="position:fixed;left:0;top:0;pointer-events:none;z-index:1"></canvas>
+  </div>
+</body>
+</html>

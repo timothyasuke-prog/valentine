@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Relationship Counter</title>
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+  <a class="home" href="index.html">← Back</a>
+  <main class="surprise">
+    <h2>How long we've been together</h2>
+    <p class="sub">(YYYY-MM-DD).</p>
+    <div id="counter" data-start="2026-01-05" style="font-size:20px;margin-top:12px">Loading…</div>
+  </main>
+  <script>
+    function updateCounter(){
+      const el=document.getElementById('counter');
+      const start=el.dataset.start; if(!start) return;
+      const s=new Date(start); const now=new Date(); let diff=now - s;
+      const days=Math.floor(diff/86400000); diff%=86400000; const hours=Math.floor(diff/3600000); diff%=3600000; const mins=Math.floor(diff/60000); const secs=Math.floor((diff%60000)/1000);
+      el.innerText = `We've been together for ${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds`;
+    }
+    updateCounter(); setInterval(updateCounter,1000);
+  </script>
+</body></html>
